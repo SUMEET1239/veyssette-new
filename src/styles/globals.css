@@ -24,3 +24,22 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.testimonial-slider .swiper {
+  padding-bottom: 60px;
+}
+
+.testimonial-slider .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.testimonial-slider .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #4a3920;
+  opacity: 1;
+}
+
+.testimonial-slider .swiper-pagination-bullet-active {
+  background: #d4af5f;
+}
