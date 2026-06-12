@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="border-t border-[#8B6B2C]/40 mb-10 md:mb-16"></div>
 
         {/* Main Footer */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_50px] gap-12 lg:gap-8">
           {/* Logo + Description */}
           <div>
             <div className="flex items-center gap-4 mb-6 md:mb-8">
@@ -74,15 +74,15 @@ export default function Footer() {
                 <p>+1 (212) 845 2741</p>
                 <p>+1 (646) 903 1187</p>
               </div>
-
-              {/* Social Icons */}
-              <div className="flex gap-5 text-[#C9A45A] text-xl md:text-2xl pt-2">
-                <FaFacebookF className="cursor-pointer hover:opacity-80 transition" />
-                <FaXTwitter className="cursor-pointer hover:opacity-80 transition" />
-                <FaYoutube className="cursor-pointer hover:opacity-80 transition" />
-                <FaInstagram className="cursor-pointer hover:opacity-80 transition" />
-              </div>
             </div>
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex flex-col gap-6 text-[#C9A45A] text-xl md:text-2xl lg:items-center">
+            <FaFacebookF className="cursor-pointer hover:opacity-80 transition" />
+            <FaXTwitter className="cursor-pointer hover:opacity-80 transition" />
+            <FaYoutube className="cursor-pointer hover:opacity-80 transition" />
+            <FaInstagram className="cursor-pointer hover:opacity-80 transition" />
           </div>
         </div>
 

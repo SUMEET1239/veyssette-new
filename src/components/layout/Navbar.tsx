@@ -49,14 +49,16 @@ export default function Navbar() {
         <div className="h-24 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
-            <Image
-              src="/photos/logo.jpg"
-              alt="Veyssette"
-              width={220}
-              height={70}
-              priority
-              className="w-[180px] md:w-[220px] h-auto object-contain"
-            />
+            <div className="w-[180px] md:w-[220px]">
+              <Image
+                src="/photos/logo.jpg"
+                alt="Veyssette"
+                width={220}
+                height={70}
+                priority
+                className="w-full h-auto object-contain"
+              />
+            </div>
           </Link>
 
           {/* Desktop Menu */}

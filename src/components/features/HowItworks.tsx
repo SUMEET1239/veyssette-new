@@ -33,14 +33,16 @@ export default function HowItWorksSection() {
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[150px]">
         {/* Top */}
         <div className="flex flex-col items-center text-center">
-          <Image
-            src="https://templateup.site/veyssette/wp-content/uploads/sites/96/2026/05/divider.webp"
-            alt="divider"
-            width={110}
-            height={40}
-            unoptimized
-            className="w-[80px] md:w-[110px] h-auto"
-          />
+          <div className="w-[80px] md:w-[110px]">
+            <Image
+              src="https://templateup.site/veyssette/wp-content/uploads/sites/96/2026/05/divider.webp"
+              alt="divider"
+              width={110}
+              height={40}
+              unoptimized
+              className="w-full h-auto"
+            />
+          </div>
 
           <p className="mt-4 text-[#C9A45A] uppercase tracking-[2px] text-xs md:text-sm font-semibold">
             How It Works

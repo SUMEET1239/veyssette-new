@@ -100,6 +100,7 @@ export default function HomePage() {
               <img
                 src="/photos/chef.jpg"
                 alt="Private Chef"
+                loading="eager"
                 className="w-full h-full object-cover"
               />
             </div>
