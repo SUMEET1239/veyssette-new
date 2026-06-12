@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <section className="min-h-screen pt-4 bg-[#0f0f0f] text-white">
         <div className="px-5 md:px-10 lg:px-[100px]">
-          <div className="grid lg:grid-cols-2 min-h-screen items-center mt-[80px] gap-10 lg:gap-[10px]">
+          <div className="grid lg:grid-cols-2 min-h-screen items-center mt-[60px] md:mt-[80px] gap-10 lg:gap-[10px]">
             <div>
               <p className="text-[#d4af37] uppercase tracking-[2px] mb-4 md:mb-6 text-sm md:text-base">
                 Luxury Personal Chef Experience
