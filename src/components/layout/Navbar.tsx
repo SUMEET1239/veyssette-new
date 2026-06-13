@@ -44,7 +44,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0f0f0f] border-b border-[#D4AF37]/40">
+    <header className="top-0 left-0 w-full md:px-[40px] z-50 bg-[#0f0f0f] border-b border-[#D4AF37]/40">
       <div className="w-full px-8 lg:px-16">
         <div className="h-24 flex items-center justify-between gap-4">
           {/* Logo */}

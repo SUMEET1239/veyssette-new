@@ -1,3 +1,4 @@
+"use client";
 import { Cormorant_Garamond } from "next/font/google";
 import FeaturesSection from "../features/FeatureSection";
 import AboutSection from "../features/AboutSection";
@@ -6,6 +7,7 @@ import CTASection from "../features/CTAsection";
 import TestimonialsSection from "../features/TestimonialSection";
 import HowItWorksSection from "../features/HowItworks";
 import FeaturedMenu from "../features/FeaturedMenu";
+import { motion } from "framer-motion";
 
 export const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -14,9 +16,9 @@ export const cormorant = Cormorant_Garamond({
 export default function HomePage() {
   return (
     <>
-      <section className="min-h-screen pt-4 bg-[#0f0f0f] text-white">
+      <section className="min-h-screen bg-[#0f0f0f] text-white">
         <div className="px-5 md:px-10 lg:px-[100px]">
-          <div className="grid lg:grid-cols-2 min-h-screen items-center mt-[60px] md:mt-[80px] gap-10 lg:gap-[10px]">
+          <div className="grid lg:grid-cols-2 min-h-screen items-center  gap-10 lg:gap-[10px]">
             <div>
               <p className="text-[#d4af37] uppercase tracking-[2px] mb-4 md:mb-6 text-sm md:text-base">
                 Luxury Personal Chef Experience
@@ -96,14 +98,23 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative h-[450px] sm:h-[600px] md:h-[800px] lg:h-[110vh] overflow-hidden border border-[#D4AF37]/30">
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+              className="relative h-[450px] sm:h-[600px] md:h-[800px] lg:h-[110vh] overflow-hidden border border-[#D4AF37]/30"
+            >
               <img
                 src="/photos/chef.jpg"
                 alt="Private Chef"
                 loading="eager"
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
