@@ -36,7 +36,7 @@ export default function AboutSection() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-15 mt-10 lg:mt-14">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-20 mt-10 lg:mt-14">
               <div>
                 <h3
                   className={`${cormorant.className} text-[#C9A45C] text-[40px] lg:text-[50px] leading-none`}
