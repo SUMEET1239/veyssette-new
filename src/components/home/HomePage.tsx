@@ -8,12 +8,30 @@ import TestimonialsSection from "../features/TestimonialSection";
 import HowItWorksSection from "../features/HowItworks";
 import FeaturedMenu from "../features/FeaturedMenu";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 export default function HomePage() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const end = 100;
+
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+
+      if (start >= end) {
+        clearInterval(timer);
+      }
+    }, 20);
+
+    return () => clearInterval(timer);
+  }, []);
   return (
     <>
       <section className="min-h-screen bg-[#0f0f0f] text-white">
@@ -47,55 +65,63 @@ export default function HomePage() {
                 </button>
               </div>
 
-              <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8">
-                <div>
-                  <p className="text-[#B8AA96] mb-4 text-base md:text-lg">
-                    Trusted by clients in
-                  </p>
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="mt-10 md:mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8"
+              >
+                <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8">
+                  <div>
+                    <p className="text-[#B8AA96] mb-4 text-base md:text-lg">
+                      Trusted by clients in
+                    </p>
 
-                  <div className="flex">
-                    <img
-                      src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/avatar-4-ro2xa5oghowr6ejlww33672wr45z7tnu2xrqppodqg.webp"
-                      alt=""
-                      className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black"
-                    />
+                    <div className="flex">
+                      <img
+                        src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/avatar-4-ro2xa5oghowr6ejlww33672wr45z7tnu2xrqppodqg.webp"
+                        alt=""
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black"
+                      />
 
-                    <img
-                      src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/avatar-3-ro5e1g9h0v0ya179n2os8vihr2yvewra26aqxzzdzc.webp"
-                      alt=""
-                      className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black -ml-3"
-                    />
+                      <img
+                        src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/avatar-3-ro5e1g9h0v0ya179n2os8vihr2yvewra26aqxzzdzc.webp"
+                        alt=""
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black -ml-3"
+                      />
 
-                    <img
-                      src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/avatar-1-ro2xd3w7xyy5mc9bonzxhy9zvnmgdmdi5jhlxzaw7c.webp"
-                      alt=""
-                      className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black -ml-3"
-                    />
+                      <img
+                        src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/avatar-1-ro2xd3w7xyy5mc9bonzxhy9zvnmgdmdi5jhlxzaw7c.webp"
+                        alt=""
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black -ml-3"
+                      />
 
-                    <img
-                      src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/avatar-2-ro2xbmbf4ewt8kf5diu71tsq0oyj6vgsy6axl7ic20.webp"
-                      alt=""
-                      className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black -ml-3"
-                    />
+                      <img
+                        src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/avatar-2-ro2xbmbf4ewt8kf5diu71tsq0oyj6vgsy6axl7ic20.webp"
+                        alt=""
+                        className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black -ml-3"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:block h-20 md:h-28 w-px bg-[#C9A45C]/40" />
+
+                  <div>
+                    <h3
+                      className={`${cormorant.className} text-[#C9A45C] text-3xl md:text-4xl`}
+                    >
+                      {count}+
+                    </h3>
+
+                    <p
+                      className={`${cormorant.className} text-[#F5E8D0] text-2xl md:text-3xl italic`}
+                    >
+                      Happy clients
+                    </p>
                   </div>
                 </div>
-
-                <div className="hidden sm:block h-20 md:h-28 w-px bg-[#C9A45C]/40" />
-
-                <div>
-                  <h3
-                    className={`${cormorant.className} text-[#C9A45C] text-3xl md:text-4xl`}
-                  >
-                    100+
-                  </h3>
-
-                  <p
-                    className={`${cormorant.className} text-[#F5E8D0] text-2xl md:text-3xl italic`}
-                  >
-                    Happy clients
-                  </p>
-                </div>
-              </div>
+              </motion.div>
             </div>
 
             <motion.div

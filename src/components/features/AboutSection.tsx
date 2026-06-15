@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { Cormorant_Garamond } from "next/font/google";
+import CountUp from "react-countup";
+import { motion } from "framer-motion";
 
 export const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -34,12 +36,12 @@ export default function AboutSection() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-20 mt-10 lg:mt-14">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-15 mt-10 lg:mt-14">
               <div>
                 <h3
                   className={`${cormorant.className} text-[#C9A45C] text-[40px] lg:text-[50px] leading-none`}
                 >
-                  10+
+                  <CountUp end={10} duration={2} />+
                 </h3>
 
                 <p
@@ -53,7 +55,7 @@ export default function AboutSection() {
                 <h3
                   className={`${cormorant.className} text-[#C9A45C] text-[40px] lg:text-[50px] leading-none`}
                 >
-                  300+
+                  <CountUp end={300} duration={2.5} />+
                 </h3>
 
                 <p
@@ -67,7 +69,7 @@ export default function AboutSection() {
                 <h3
                   className={`${cormorant.className} text-[#C9A45C] text-[40px] lg:text-[50px] leading-none`}
                 >
-                  100+
+                  <CountUp end={100} duration={2.5} />+
                 </h3>
 
                 <p
@@ -87,7 +89,13 @@ export default function AboutSection() {
           {/* RIGHT IMAGES */}
           <div className="grid grid-cols-2 gap-4 md:gap-6">
             {/* LEFT COLUMN */}
-            <div className="flex flex-col gap-4 md:gap-6">
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col gap-4 md:gap-6"
+            >
               <div className="overflow-hidden rounded-md border border-[#C9A45C]/30">
                 <Image
                   src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/magnific_luxury-gourmet-meat-dish-_ubWJi8TQLD-ro1puap9z00q2u945tierihdcqe8jmd0ajmqaprm0w.webp"
@@ -98,7 +106,13 @@ export default function AboutSection() {
                 />
               </div>
 
-              <div className="overflow-hidden rounded-md border border-[#C9A45C]/20">
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="overflow-hidden rounded-md border border-[#C9A45C]/20"
+              >
                 <Image
                   src="https://templateup.site/veyssette/wp-content/uploads/sites/96/elementor/thumbs/magnific_professional-chef-careful_74f0BVaJAL-ro1psr8srrwt1uho5njf6eh6azzkxh8uex52ze1u80.webp"
                   alt="second"
@@ -106,11 +120,17 @@ export default function AboutSection() {
                   height={450}
                   className="w-full h-[220px] sm:h-[260px] lg:h-[320px] object-cover"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* RIGHT TALL IMAGE */}
-            <div className="overflow-hidden rounded-md border border-[#C9A45C]/20">
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="overflow-hidden rounded-md border border-[#C9A45C]/20"
+            >
               <Image
                 src="/photos/aboutimage.jpg"
                 alt="third"
@@ -118,7 +138,7 @@ export default function AboutSection() {
                 height={1100}
                 className="w-full h-full object-cover min-h-[410px] sm:min-h-[500px] lg:min-h-[610px]"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

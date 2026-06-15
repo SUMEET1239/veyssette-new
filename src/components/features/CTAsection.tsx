@@ -1,10 +1,17 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function CTASection() {
   return (
     <section className="bg-[#1A1713] py-16 md:py-20 lg:py-24">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[120px]">
-        <div className="relative overflow-hidden rounded-md border border-[#6B5426] h-[280px] md:h-[320px] lg:h-[380px]">
+        <motion.div
+          initial={{ opacity: 0, y: 150 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="relative overflow-hidden rounded-md border border-[#6B5426] h-[280px] md:h-[320px] lg:h-[380px]"
+        >
           {/* Background Image */}
           <Image
             src="/photos/CTA.jpg"
@@ -19,7 +26,7 @@ export default function CTASection() {
 
           {/* Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-5 md:px-8">
-            <h2 className="font-serif text-[#F5E8D0] text-[28px] leading-[1.2] md:text-[42px] lg:text-[50px] max-w-4xl">
+            <h2 className="font-serif text-[#F5E8D0] text-[28px] leading-[1.2] md:text-[42px] lg:text-[48px] max-w-4xl">
               Ready To Enjoy An Unforgettable
               <br className="hidden sm:block" />
               Culinary Experience?
@@ -29,7 +36,7 @@ export default function CTASection() {
               Book Your Chef
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

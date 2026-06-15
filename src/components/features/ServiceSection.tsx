@@ -1,5 +1,29 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 const services = [
   {
     title: "Private Dinners",
@@ -57,9 +81,15 @@ export default function ServicesSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-10">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid sm:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-10"
+        >
           {services.map((service, index) => (
-            <div key={index}>
+            <motion.div key={index} variants={cardVariants}>
               <div className="relative overflow-hidden rounded-md border border-[#6B5426]">
                 <Image
                   src={service.image}
@@ -78,9 +108,9 @@ export default function ServicesSection() {
               <p className="text-[#B8AA96] text-[15px] lg:text-[17px] leading-7 lg:leading-8">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Button */}
         <div className="flex justify-center mt-12 lg:mt-20">

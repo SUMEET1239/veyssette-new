@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { motion, Variants } from "framer-motion";
 const features = [
   {
     icon: "https://templateup.site/veyssette/wp-content/uploads/sites/96/2026/05/menu.webp",
@@ -22,14 +24,44 @@ const features = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    x: -100,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
+};
+
 export default function FeaturesSection() {
   return (
     <section className="bg-[#0f0f0f] py-16 lg:py-24 overflow-hidden">
       <div className="bg-[#1A1713] w-[180%] -ml-[40%] lg:w-[140%] lg:-ml-[20%] rounded-[40%] py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-4 px-10 lg:px-[450px]">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 lg:grid-cols-4 px-10 lg:px-[450px]"
+        >
           {features.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              variants={itemVariants}
               className={`text-center py-8 lg:py-0 px-4 lg:px-10 ${
                 index !== features.length - 1
                   ? "border-b lg:border-b-0 lg:border-r border-[#C9A45C]/25"
@@ -53,9 +85,9 @@ export default function FeaturesSection() {
               <p className="mt-4 lg:mt-8 text-[#B8AA96] text-[14px] lg:text-[16px] leading-6">
                 {item.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

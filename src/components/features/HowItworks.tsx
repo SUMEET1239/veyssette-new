@@ -1,4 +1,28 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    x: -100,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 const steps = [
   {
@@ -29,7 +53,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="bg-[#0f0f0f] py-16 lg:py-32">
+    <section className="bg-[#0f0f0f] h-[600px] py-10 lg:py-18">
       <div className="max-w-[1700px] mx-auto px-5 md:px-10 lg:px-[150px]">
         {/* Top */}
         <div className="flex flex-col items-center text-center">
@@ -54,12 +78,22 @@ export default function HowItWorksSection() {
         </div>
 
         {/* Steps */}
-        <div className="mt-12 lg:mt-15 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 lg:gap-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="mt-12 lg:mt-15 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-10 lg:gap-12"
+        >
           {steps.map((step, index) => (
-            <div key={index} className="relative text-center">
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="relative text-center"
+            >
               {/* Connector Line */}
               {index !== 3 && (
-                <div className="hidden xl:block absolute top-[55px] left-[70%] w-[70%] h-px bg-[#3A2B14]" />
+                <div className="hidden xl:block absolute top-[35px] left-[70%] w-[70%] h-px bg-[#3A2B14]" />
               )}
 
               {/* Icon */}
@@ -67,9 +101,9 @@ export default function HowItWorksSection() {
                 <Image
                   src={step.icon}
                   alt={step.title}
-                  width={85}
-                  height={85}
-                  className="object-contain w-[70px] h-[70px] lg:w-[85px] lg:h-[85px]"
+                  width={70}
+                  height={70}
+                  className="object-contain w-[60px] h-[60px] lg:w-[70px] lg:h-[70px]"
                   unoptimized
                 />
               </div>
@@ -84,9 +118,9 @@ export default function HowItWorksSection() {
               <p className="mt-4 lg:mt-5 text-[#B8AA96] text-[15px] lg:text-[18px] leading-[1.6] max-w-[320px] mx-auto">
                 {step.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
